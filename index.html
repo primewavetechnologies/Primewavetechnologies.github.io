@@ -23,6 +23,7 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
         .nav-btn { transition: 0.3s; padding-bottom: 8px; color: #555; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; white-space: nowrap; }
         .nav-btn.active { color: var(--cobalt); border-bottom: 2px solid var(--cobalt); }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
 <body class="pt-16">
@@ -46,9 +47,10 @@
         
         <section id="coverage" class="tab-content active text-center">
              <div class="prime-glass p-12 rounded-[3rem] max-w-2xl mx-auto border-blue-500/20 shadow-2xl shadow-blue-500/5">
-                <h2 class="text-2xl font-bold mb-6 italic uppercase text-white">Infrastructure Scan</h2>
-                <input type="text" id="addressInput" placeholder="Enter Physical Address..." class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl mb-4 text-white outline-none focus:border-blue-500">
-                <button onclick="checkCoverage()" class="prime-button w-full py-5 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Check Availability</button>
+                <h2 class="text-2xl font-bold mb-6 italic uppercase text-white tracking-widest">Infrastructure Scan</h2>
+                <p class="text-[10px] text-gray-500 uppercase mb-8 tracking-widest">Enter location to verify network reach</p>
+                <input type="text" id="addressInput" placeholder="Enter Physical Address..." class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl mb-4 text-white outline-none focus:border-blue-500 transition-all">
+                <button onclick="checkCoverage()" class="prime-button w-full py-5 rounded-2xl text-[10px] font-bold uppercase tracking-[0.3em] hover:scale-[1.02]">Initiate Scan</button>
             </div>
         </section>
 
@@ -57,10 +59,10 @@
                 <script>
                     [{n:'40Mbps Sym',p:'549'},{n:'100Mbps Sym',p:'889'},{n:'200Mbps Sym',p:'1079'},{n:'500Mbps Sym',p:'1349'}].forEach(f=>{
                         document.write(`<div class="prime-glass p-8 rounded-[2rem] text-center">
-                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Primewave Fibre</p>
+                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Fibre</p>
                             <h3 class="text-4xl font-bold my-6">R${f.p}</h3>
                             <p class="text-[8px] text-blue-400 mb-6 uppercase">${f.n}</p>
-                            <button onclick="processOrder('${f.n} Fibre', '${f.p}')" class="prime-button w-full py-3 rounded-xl text-[9px] font-bold uppercase">Order Now</button>
+                            <button onclick="processOrder('${f.n} Fibre', '${f.p}')" class="prime-button w-full py-3 rounded-xl text-[9px] font-bold uppercase">Order</button>
                         </div>`);
                     });
                 </script>
@@ -124,13 +126,11 @@
                 <div class="prime-glass p-10 rounded-[2.5rem] text-center">
                     <p class="text-[9px] text-blue-400 uppercase font-bold tracking-widest">Unlimited Voice</p>
                     <h3 class="text-4xl font-bold my-6">R399</h3>
-                    <p class="text-[8px] text-gray-500 mb-8 uppercase italic">Pure VoIP Infrastructure</p>
                     <button onclick="processOrder('Voice Unlimited', '399')" class="prime-button w-full py-4 rounded-xl text-[9px] font-bold uppercase">Order Voice</button>
                 </div>
                 <div class="prime-glass p-10 rounded-[2.5rem] text-center">
                     <p class="text-blue-500 text-[9px] uppercase font-bold tracking-widest">SIP Trunking Pro</p>
                     <h3 class="text-4xl font-bold my-6">R1699</h3>
-                    <p class="text-[8px] text-gray-500 mb-8 uppercase italic">Corporate Grade Path</p>
                     <button onclick="processOrder('SIP Trunking Pro', '1699')" class="prime-button w-full py-4 rounded-xl text-[9px] font-bold uppercase">Order SIP</button>
                 </div>
             </div>
@@ -141,7 +141,6 @@
                 <div class="prime-glass p-10 rounded-[2.5rem] text-center">
                     <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Prime Cloud</p>
                     <h3 class="text-4xl font-bold my-6 text-white">R299</h3>
-                    <p class="text-[8px] text-blue-400 mb-8 uppercase tracking-widest">Secure Sentient Hosting</p>
                     <button onclick="processOrder('Cloud Hosting', '299')" class="prime-button w-full py-4 rounded-xl text-[9px] font-bold uppercase">Deploy Space</button>
                 </div>
             </div>
@@ -152,8 +151,8 @@
                 <div class="absolute -top-24 -left-24 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px]"></div>
                 <h2 class="text-4xl font-bold mb-8 italic uppercase text-white">The Prime Protocol<span class="text-blue-500">.</span></h2>
                 <div class="text-gray-400 font-light text-lg leading-relaxed">
-                    <p class="mb-6"><span class="text-white font-medium">Primewave Technologies</span> is a forward-thinking telecommunications provider dedicated to architecting superior digital experiences. We specialize in high-capacity, ultra-low latency connectivity specifically engineered for <span class="text-blue-400">sentient beings</span>.</p>
-                    <p>By integrating world-class infrastructure with a personalized approach, Primewave ensures that your gateway to the global web is stable, secure, and operating at the highest frequency of performance.</p>
+                    <p class="mb-6"><span class="text-white font-medium">Primewave Technologies</span> is a forward-thinking provider specifically engineered for <span class="text-blue-400">sentient beings</span>.</p>
+                    <p>By integrating world-class infrastructure with a personalized approach, we ensure your gateway to the web is stable, secure, and operating at the highest frequency.</p>
                 </div>
             </article>
         </section>
@@ -174,7 +173,6 @@
             </div>
             <div class="text-center">
                 <p class="text-[9px] text-gray-600 uppercase tracking-widest">© 2025 Primewave Technologies (Pty) Ltd</p>
-                <p class="text-[8px] text-blue-500/20 mt-2 uppercase tracking-[0.3em]">Connecting South Africa | Verified Sentient Gateway</p>
             </div>
         </div>
     </footer>
@@ -196,14 +194,18 @@
 
         function checkCoverage() {
             const addr = document.getElementById('addressInput').value;
-            if(!addr) return alert("Please enter coordinates (address) for an infrastructure scan.");
-            window.location.href = `https://wa.me/${whatsappNumber}?text=Greetings Primewave. I am a sentient being. Please check availability for: ${addr}`;
+            if(!addr || addr.trim() === "") {
+                alert("Please enter a valid address.");
+                return;
+            }
+            const msg = encodeURIComponent("Greetings Primewave. I am a sentient being. Please check availability for: " + addr);
+            window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
         }
 
         function processOrder(prod, price) {
             window.open(yocoLink, '_blank');
-            const msg = `Greetings Primewave. I am a sentient being ordering: *${prod}* @ *R${price}*. I have accessed the payment portal.`;
-            setTimeout(() => { window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`; }, 1500);
+            const msg = encodeURIComponent(`Greetings Primewave. I am a sentient being ordering: *${prod}* @ *R${price}*. I have accessed the payment portal.`);
+            setTimeout(() => { window.location.href = `https://wa.me/${whatsappNumber}?text=${msg}`; }, 1500);
         }
     </script>
 </body>
