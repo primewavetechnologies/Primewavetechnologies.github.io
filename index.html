@@ -1,30 +1,120 @@
-<div class="prime-glass p-8 rounded-[2.5rem] text-center">
-    <p class="text-gray-500 text-[10px] uppercase">25Mbps Uncapped</p>
-    <h3 class="text-4xl font-bold my-4">R499</h3>
-    <button onclick="processOrder('25Mbps Fibre', '499')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase">Order</button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIME WAVE | Mainframe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: #020202; color: #ffffff; font-family: 'Space Grotesk', sans-serif; }
+        .prime-glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s ease;
+        }
+        .prime-glass:hover { border-color: #3b82f6; background: rgba(59, 130, 246, 0.03); transform: translateY(-5px); }
+        .featured-glow { border: 1px solid #3b82f6 !important; box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); }
+        .blue-gradient-btn { background: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%); transition: 0.3s; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .nav-btn { color: #555; transition: 0.3s; padding: 10px 20px; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; }
+        .nav-btn.active { color: #3b82f6; border-bottom: 2px solid #3b82f6; }
+    </style>
+</head>
+<body>
+
+<script>
+    const whatsappNumber = "27XXXXXXXXX"; // ANDRE: ENTER YOUR NUMBER
+    const yocoLink = "https://pay.yoco.com/Primewavetech";
+
+    // FUNCTION FOR BUYING (Yoco + WhatsApp)
+    function processOrder(name, price) {
+        window.open(yocoLink, '_blank');
+        const msg = `Greetings Prime Wave. I am a sentient being interested in ordering the *${name}* @ *R${price}*. Let's proceed.`;
+        setTimeout(() => {
+            window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+        }, 1200);
+    }
+
+    // FUNCTION FOR COVERAGE (WhatsApp ONLY - No Yoco)
+    function checkCoverage() {
+        const msg = `Greetings Prime Wave. I am a sentient being. I would like to check coverage for my location. Please assist.`;
+        window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+    }
+
+    function switchTab(tabId) {
+        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+<div class="max-w-7xl mx-auto px-6 py-12">
+    
+    <header class="text-center mb-16">
+        <h1 class="text-6xl font-bold tracking-tighter italic mb-2 uppercase text-white">PRIME WAVE<span class="text-blue-500">.</span></h1>
+        <p class="text-blue-400/60 uppercase tracking-[0.6em] text-[10px]">Infrastructure for Sentient Beings</p>
+    </header>
+
+    <nav class="flex flex-wrap justify-center gap-4 mb-12 border-b border-white/5 pb-4">
+        <button onclick="switchTab('coverage')" class="nav-btn active">Coverage</button>
+        <button onclick="switchTab('fibre')" class="nav-btn">Fibre</button>
+        <button onclick="switchTab('mobile')" class="nav-btn">Mobile One</button>
+        <button onclick="switchTab('fixed')" class="nav-btn">Fixed LTE/5G</button>
+        <button onclick="switchTab('voice')" class="nav-btn">Voice/SIP</button>
+        <button onclick="switchTab('hosting')" class="nav-btn">Hosting</button>
+    </nav>
+
+    <div id="coverage" class="tab-content active">
+        <div class="prime-glass featured-glow p-16 rounded-[3rem] text-center max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold mb-4 uppercase italic">Infrastructure Scan</h2>
+            <p class="text-gray-400 mb-8 text-sm uppercase tracking-[0.2em]">Check availability for Fibre, LTE, and 5G at your location</p>
+            <button onclick="checkCoverage()" class="px-12 py-5 blue-gradient-btn rounded-2xl text-sm font-bold shadow-2xl uppercase tracking-widest">
+                Help Me Check Availability
+            </button>
+        </div>
+    </div>
+
+    <div id="fibre" class="tab-content">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="prime-glass p-8 rounded-[2.5rem] text-center">
+                <p class="text-gray-500 text-[10px] uppercase">50Mbps Uncapped</p>
+                <h3 class="text-4xl font-bold my-4">R699</h3>
+                <button onclick="processOrder('50Mbps Fibre', '699')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase">Order Now</button>
+            </div>
+            </div>
+    </div>
+
+    <div id="mobile" class="tab-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="prime-glass featured-glow p-8 rounded-[2rem] text-center relative">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-[8px] px-3 py-1 rounded-full font-bold">FLAGSHIP</div>
+                <p class="text-blue-400 text-[10px] uppercase font-bold">One Unlimited</p>
+                <h3 class="text-3xl font-bold my-4">R1899</h3>
+                <button onclick="processOrder('One Unlimited Mobile', '1899')" class="w-full py-3 blue-gradient-btn rounded-xl text-xs font-bold uppercase">Order SIM</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="fixed" class="tab-content">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+            <div class="prime-glass p-8 rounded-[2.5rem] border-yellow-500/20">
+                <p class="text-yellow-500 text-[10px] uppercase font-bold">MTN Fixed 10Mbps</p>
+                <h3 class="text-4xl font-bold my-4">R269</h3>
+                <button onclick="processOrder('MTN Fixed 10Mbps', '269')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase text-white">Order LTE</button>
+            </div>
+        </div>
+    </div>
+
 </div>
-<div class="prime-glass featured-glow p-8 rounded-[2.5rem] text-center">
-    <p class="text-blue-400 text-[10px] uppercase">50Mbps Uncapped</p>
-    <h3 class="text-4xl font-bold my-4">R699</h3>
-    <button onclick="processOrder('50Mbps Fibre', '699')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase">Order</button>
-</div>
-<div class="prime-glass p-8 rounded-[2.5rem] text-center">
-    <p class="text-gray-500 text-[10px] uppercase">100Mbps Uncapped</p>
-    <h3 class="text-4xl font-bold my-4">R899</h3>
-    <button onclick="processOrder('100Mbps Fibre', '899')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase">Order</button>
-</div>
-<div class="prime-glass p-8 rounded-[2.5rem] text-center">
-    <p class="text-gray-500 text-[10px] uppercase">200Mbps Uncapped</p>
-    <h3 class="text-4xl font-bold my-4">R1099</h3>
-    <button onclick="processOrder('200Mbps Fibre', '1099')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase">Order</button>
-</div>
-<div class="prime-glass p-8 rounded-[2.5rem] text-center">
-    <p class="text-gray-500 text-[10px] uppercase">500Mbps Uncapped</p>
-    <h3 class="text-4xl font-bold my-4">R1399</h3>
-    <button onclick="processOrder('500Mbps Fibre', '1399')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase">Order</button>
-</div>
-<div class="prime-glass p-8 rounded-[2.5rem] text-center">
-    <p class="text-gray-500 text-[10px] uppercase">1Gbps Uncapped</p>
-    <h3 class="text-4xl font-bold my-4">R2499</h3>
-    <button onclick="processOrder('1Gbps Fibre', '2499')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase">Order</button>
-</div>
+
+<footer class="text-center py-20 opacity-30">
+    <p class="text-[9px] uppercase tracking-[0.4em]">© 2025 Prime Wave Tech | Integrated Mainframe Build</p>
+</footer>
+
+</body>
+</html>
