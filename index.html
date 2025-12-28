@@ -3,100 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Wave Technologies | National ISP & AI Agency</title>
-    <meta name="description" content="Cheapest Unlimited Fibre, WiFi, and Data in South Africa. Prime Wave Technologies provides national connectivity and AI solutions.">
+    <title>Prime Wave Technologies | National ISP</title>
+    <meta name="description" content="South Africa's cheapest internet. Fibre from R299, WiFi from R350. National coverage via Prime Wave Technologies.">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        body { background: #0a0a0b; color: #fff; font-family: sans-serif; }
-        .wave-text { background: linear-gradient(90deg, #00f2fe, #4facfe); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(15px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        body { background: #050506; color: #ffffff; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .wave-gradient { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
+        .text-gradient { background: linear-gradient(90deg, #00c6ff, #0072ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
     </style>
 </head>
 <body>
 
-    <nav class="p-6 flex justify-between items-center glass sticky top-0 z-50">
-        <div class="text-2xl font-bold wave-text">PRIME WAVE</div>
-        <div class="space-x-4 text-sm font-medium">
-            <a href="#internet">Internet</a>
-            <a href="#store">Store</a>
-            <a href="#ai">AI Tools</a>
+    <nav class="p-5 flex justify-between items-center glass sticky top-0 z-50">
+        <div class="text-xl font-black tracking-tighter text-gradient">PRIME WAVE</div>
+        <div class="flex space-x-6 text-[10px] uppercase tracking-widest">
+            <a href="#internet" class="hover:text-blue-400">Connectivity</a>
+            <a href="#contact" class="hover:text-blue-400">Support</a>
         </div>
     </nav>
 
-    <section class="py-20 px-6 text-center">
-        <h1 class="text-5xl font-extrabold mb-4">The Future is <span class="wave-text">Unlimited.</span></h1>
-        <p class="text-gray-400 mb-8">South Africa's cheapest National ISP & AI Solutions Hub.</p>
+    <section class="py-24 px-6 text-center">
+        <span class="bg-blue-900/30 text-blue-400 text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-widest border border-blue-500/30">Nationwide Coverage</span>
+        <h1 class="text-6xl font-bold mt-6 mb-4 tracking-tight">The Future is <span class="text-gradient">Unlimited.</span></h1>
+        <p class="text-gray-400 max-w-xl mx-auto mb-10 text-sm">Prime Wave Technologies: Providing South Africa's most affordable high-speed infrastructure and digital solutions.</p>
         
-        <div class="max-w-md mx-auto glass p-2 rounded-full flex">
-            <input type="text" id="address" placeholder="Enter your address for Fibre..." class="bg-transparent p-3 flex-grow outline-none">
-            <button onclick="checkCoverage()" class="bg-blue-600 px-6 py-3 rounded-full font-bold hover:bg-blue-500 transition">Check</button>
+        <div class="max-w-md mx-auto glass p-1.5 rounded-2xl flex border-white/20">
+            <input type="text" id="address" placeholder="Enter your address for Fibre..." class="bg-transparent p-4 flex-grow outline-none text-sm">
+            <button onclick="checkCoverage()" class="wave-gradient px-8 py-4 rounded-xl font-bold text-sm hover:scale-105 transition">Check</button>
         </div>
     </section>
 
-    <section id="internet" class="py-16 px-6 bg-black/50">
-        <h2 class="text-3xl font-bold text-center mb-12">Our Prime Connectivity Deals</h2>
-        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <section id="internet" class="py-20 px-6">
+        <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             
-            <div class="glass p-8 rounded-3xl text-center">
-                <h3 class="text-xl font-bold mb-2">Unlimited Fibre</h3>
-                <p class="text-blue-400 text-3xl font-bold mb-4">R499<span class="text-sm">/pm</span></p>
-                <ul class="text-gray-400 text-sm mb-8 space-y-2">
-                    <li>50Mbps Download</li>
-                    <li>Free Installation</li>
-                    <li>Free-to-use Router</li>
-                </ul>
-                <a href="https://pay.yoco.com/Primewavetech" class="block bg-white text-black py-3 rounded-xl font-bold">Buy Now</a>
+            <div class="glass p-10 rounded-[2rem] border-white/5 relative">
+                <div class="text-blue-500 font-bold text-xs uppercase mb-4">Unlimited Fibre</div>
+                <h3 class="text-4xl font-bold mb-6">R299<span class="text-lg font-light text-gray-500">/pm</span></h3>
+                <p class="text-gray-400 text-sm mb-8">Lightning fast home connectivity. Free-to-use router included. No contracts.</p>
+                <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl bg-white text-black font-bold text-center hover:bg-gray-200 transition">Order Fibre</a>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center border-blue-500/50 border-2">
-                <div class="bg-blue-500 text-xs py-1 px-3 rounded-full inline-block mb-4">Most Popular</div>
-                <h3 class="text-xl font-bold mb-2">Uncapped Home WiFi</h3>
-                <p class="text-blue-400 text-3xl font-bold mb-4">R399<span class="text-sm">/pm</span></p>
-                <ul class="text-gray-400 text-sm mb-8 space-y-2">
-                    <li>Plug & Play Router</li>
-                    <li>No Installation Needed</li>
-                    <li>National Coverage</li>
-                </ul>
-                <a href="https://pay.yoco.com/Primewavetech class="block bg-blue-600 text-white py-3 rounded-xl font-bold">Buy Now</a>
+            <div class="glass p-10 rounded-[2rem] border-blue-500/30 border-2 relative scale-105 shadow-2xl shadow-blue-500/10">
+                <div class="absolute top-0 right-0 bg-blue-500 text-white text-[10px] px-4 py-1 rounded-bl-xl font-bold">BEST VALUE</div>
+                <div class="text-blue-500 font-bold text-xs uppercase mb-4">Plug & Play WiFi</div>
+                <h3 class="text-4xl font-bold mb-6">R350<span class="text-lg font-light text-gray-500">/pm</span></h3>
+                <p class="text-gray-400 text-sm mb-8">Uncapped LTE nationwide. No installation required. Just plug in and connect.</p>
+                <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl wave-gradient text-white font-bold text-center hover:opacity-90 transition">Order WiFi</a>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center">
-                <h3 class="text-xl font-bold mb-2">Bulk Mobile Data</h3>
-                <p class="text-blue-400 text-3xl font-bold mb-4">R199<span class="text-sm">/once-off</span></p>
-                <ul class="text-gray-400 text-sm mb-8 space-y-2">
-                    <li>50GB Data Bundle</li>
-                    <li>Works Nationally</li>
-                    <li>No Contract</li>
-                </ul>
-                <a href="https://pay.yoco.com/Primewavetech class="block bg-white text-black py-3 rounded-xl font-bold">Buy Now</a>
+            <div class="glass p-10 rounded-[2rem] border-white/5">
+                <div class="text-blue-500 font-bold text-xs uppercase mb-4">Mobile Data</div>
+                <h3 class="text-4xl font-bold mb-6">R350<span class="text-lg font-light text-gray-500">/bundle</span></h3>
+                <p class="text-gray-400 text-sm mb-8">High-volume national data bundles. Stay connected anywhere in SA on any device.</p>
+                <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl bg-white text-black font-bold text-center hover:bg-gray-200 transition">Get Data</a>
             </div>
 
         </div>
     </section>
 
-    <section id="ai" class="py-16 px-6">
-        <h2 class="text-2xl font-bold text-center mb-8">ProPrompt AI Directory</h2>
-        <div class="max-w-4xl mx-auto glass p-6 rounded-3xl flex items-center justify-between">
-            <div>
-                <h4 class="font-bold">Invideo AI</h4>
-                <p class="text-sm text-gray-400">Create videos with just a prompt.</p>
-            </div>
-            <a href="YOUR_INVIDEO_AFFILIATE_LINK" class="text-blue-400 font-bold">Try AI &rarr;</a>
+    <section id="contact" class="py-20 px-6 text-center">
+        <div class="max-w-2xl mx-auto glass p-10 rounded-[2.5rem] border-white/5">
+            <h2 class="text-2xl font-bold mb-4">Need Assistance?</h2>
+            <p class="text-gray-400 mb-8 text-sm">Chat directly with our support team regarding coverage or technical help.</p>
+            <a href="https://wa.me/27696101617" class="inline-block px-10 py-4 rounded-full border border-blue-500 text-blue-400 font-bold hover:bg-blue-500 hover:text-white transition">
+                WhatsApp Support
+            </a>
         </div>
     </section>
 
-    <footer class="py-12 text-center text-gray-500 text-xs border-t border-white/10">
-        <p>&copy; 2026 Prime Wave Technologies. Powered by Capitec & Yoco Secure Payments.</p>
+    <footer class="py-10 text-center border-t border-white/5">
+        <p class="text-gray-600 text-[10px] tracking-widest uppercase mb-4">Secure Payments via Yoco & Capitec Bank</p>
+        <p class="text-gray-400 text-[10px] tracking-tighter">&copy; 2026 PRIME WAVE TECHNOLOGIES. POWERED BY SENTIENT AI.</p>
     </footer>
 
     <script>
         function checkCoverage() {
-            let addr = document.getElementById('address').value;
-            if(!addr) return alert("Please enter an address");
-            // Sends address to your WhatsApp
-            let phone = "27696101617"; // 
-            let msg = encodeURIComponent("Hi Prime Wave, please check coverage for: " + addr);
-            window.location.href = "https://wa.me/" + phone + "?text=" + msg;
+            const addr = document.getElementById('address').value;
+            if(!addr) return alert("Please enter your address");
+            const phone = "27696101617";
+            const msg = encodeURIComponent("Hi Prime Wave! I would like to check Fibre/WiFi coverage for: " + addr);
+            window.location.href = `https://wa.me/${phone}?text=${msg}`;
         }
     </script>
 </body>
