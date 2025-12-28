@@ -1,77 +1,110 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prime Wave Technologies | National ISP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        body { background: #0a0a0b; color: #fff; font-family: ui-sans-serif, system-ui, sans-serif; scroll-behavior: smooth; }
-        .text-blue-glow { color: #00c6ff; text-shadow: 0 0 10px rgba(0, 198, 255, 0.3); }
-        .bg-blue-gradient { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
-    </style>
-</head>
-<body>
+<script>
+    // Configuration
+    const whatsappNumber = "27XXXXXXXXX"; // Replace with your actual WhatsApp number
+    const yocoLink = "https://pay.yoco.com/Primewavetech";
 
-    <nav class="p-6 flex justify-between items-center glass sticky top-0 z-50">
-        <div class="text-xl font-black tracking-tighter text-blue-glow">PRIME WAVE</div>
-        <a href="https://wa.me/27696101617" class="text-[10px] font-bold uppercase tracking-widest border-b border-blue-500 pb-1">Get Support</a>
-    </nav>
+    function processOrder(productName, price) {
+        // 1. Open Yoco Payment in a new tab
+        window.open(yocoLink, '_blank');
 
-    <section class="py-20 px-6 text-center">
-        <h1 class="text-5xl font-extrabold mb-4 tracking-tight">The Future is <span class="text-blue-glow">Unlimited.</span></h1>
-        <p class="text-gray-400 mb-10 text-sm">South Africa's cheapest National ISP infrastructure.</p>
+        // 2. Prepare WhatsApp Message
+        const message = `Hi Prime Wave! I am interested in the *${productName}* at *R${price}/pm*. Please assist me with the sign-up process.`;
+        const encodedMessage = encodeURIComponent(message);
         
-        <div class="max-w-md mx-auto glass p-2 rounded-2xl flex border-white/20">
-            <input type="text" id="address" placeholder="Enter address for Fibre..." class="bg-transparent p-3 flex-grow outline-none text-sm">
-            <button onclick="checkCoverage()" class="bg-blue-gradient px-6 py-4 rounded-xl font-bold text-sm hover:opacity-90 transition">Check</button>
-        </div>
-    </section>
+        // 3. Trigger WhatsApp Bridge after a small delay
+        setTimeout(() => {
+            window.location.href = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+        }, 1000);
+    }
+</script>
 
-    <section class="grid gap-6 px-6 max-w-5xl mx-auto mb-20 md:grid-cols-3">
+<div class="max-w-7xl mx-auto px-4 py-12 text-white font-sans">
+    
+    <h2 class="text-2xl font-black mb-10 text-center uppercase tracking-widest border-b border-white/10 pb-4">Telkom One Mobile Series</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        
+        <div class="glass p-8 rounded-[2rem] border-blue-500/40 border-2 text-center relative shadow-2xl shadow-blue-500/10">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[9px] px-4 py-1 rounded-full font-bold uppercase tracking-tighter">Flagship Plan</div>
+            <p class="text-blue-400 font-bold text-[10px] uppercase mb-1">Telkom One Unlimited</p>
+            <h3 class="text-4xl font-black mb-4">R1899</h3>
+            <div class="text-[10px] text-gray-400 mb-8 leading-relaxed uppercase tracking-wider">
+                120GB Full Speed + Uncapped<br>
+                <span class="text-white">Unlimited All-Net Minutes*</span><br>
+                Unlimited WhatsApp & Telegram<br>
+                Network Priority
+            </div>
+            <button onclick="processOrder('Telkom One Unlimited', '1899')" class="w-full py-4 rounded-xl bg-blue-gradient text-white font-bold hover:scale-105 transition-all shadow-lg shadow-blue-500/20">
+                Order Flagship
+            </button>
+        </div>
+
+        <div class="glass p-8 rounded-[2rem] border-white/10 text-center hover:border-white/20 transition-all">
+            <p class="text-gray-400 font-bold text-[10px] uppercase mb-1">Telkom One Business</p>
+            <h3 class="text-4xl font-black mb-4">R999</h3>
+            <div class="text-[10px] text-gray-400 mb-8 leading-relaxed uppercase tracking-wider">
+                50GB Full Speed + Uncapped<br>
+                1000 All-Net Minutes<br>
+                <span class="text-white">Unlimited Telkom-to-Telkom</span><br>
+                1500 SMS Messages
+            </div>
+            <button onclick="processOrder('Telkom One Business', '999')" class="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-blue-400 hover:text-white transition-all">
+                Order Business
+            </button>
+        </div>
+
+        </div>
+
+    <h2 class="text-2xl font-black mb-10 text-center uppercase tracking-widest border-b border-white/10 pb-4">Voice & SIP Solutions</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
         
         <div class="glass p-8 rounded-[2rem] border-white/10 text-center">
-            <p class="text-blue-400 font-bold text-[10px] uppercase mb-1">Unlimited Fibre</p>
-            <p class="text-gray-500 text-[10px] italic mb-2">Starting from</p>
-            <h3 class="text-4xl font-black mb-6">R299<span class="text-sm font-normal text-gray-500">/pm</span></h3>
-            <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl bg-white text-black font-bold">Order Now</a>
-        </div>
-
-        <div class="glass p-8 rounded-[2rem] border-blue-500/50 border-2 text-center relative">
-            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[9px] px-4 py-1 rounded-full font-bold uppercase">Best Value</div>
-            <p class="text-blue-400 font-bold text-[10px] uppercase mb-1">Plug & Play WiFi</p>
-            <p class="text-gray-500 text-[10px] italic mb-2">Starting from</p>
-            <h3 class="text-4xl font-black mb-6">R350<span class="text-sm font-normal text-gray-500">/pm</span></h3>
-            <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl bg-blue-gradient text-white font-bold">Order Now</a>
+            <p class="text-gray-400 font-bold text-[10px] uppercase mb-1">Voice Unlimited Pro</p>
+            <h3 class="text-4xl font-black mb-4">R599</h3>
+            <div class="text-[10px] text-gray-400 mb-8 leading-relaxed uppercase tracking-wider">
+                Uncapped Outgoing Calls<br>
+                <span class="text-blue-400 font-bold italic">Includes Free 087 Number</span><br>
+                Android & iOS Softphone<br>
+                Works on SIP Phones
+            </div>
+            <button onclick="processOrder('Voice Unlimited Pro', '599')" class="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-blue-400 hover:text-white transition-all">
+                Order Pro Voice
+            </button>
         </div>
 
         <div class="glass p-8 rounded-[2rem] border-white/10 text-center">
-            <p class="text-blue-400 font-bold text-[10px] uppercase mb-1">Mobile Data</p>
-            <p class="text-gray-500 text-[10px] italic mb-2">Starting from</p>
-            <h3 class="text-4xl font-black mb-6">R350<span class="text-sm font-normal text-gray-500">/bundle</span></h3>
-            <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl bg-white text-black font-bold">Order Now</a>
+            <p class="text-gray-400 font-bold text-[10px] uppercase mb-1">SIP Trunk Unlimited</p>
+            <h3 class="text-4xl font-black mb-4">R1699</h3>
+            <div class="text-[10px] text-gray-400 mb-8 leading-relaxed uppercase tracking-wider">
+                Uncapped PBX Trunking<br>
+                Includes 5x Free 087 DIDs<br>
+                Business Priority Traffic<br>
+                Perfect for Call Centers
+            </div>
+            <button onclick="processOrder('Voice Unlimited SIP Trunk', '1699')" class="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-blue-400 hover:text-white transition-all">
+                Order SIP Trunk
+            </button>
         </div>
 
-    </section>
+    </div>
 
-    <footer class="py-12 text-center border-t border-white/5">
-        <p class="text-gray-600 text-[9px] tracking-widest uppercase mb-4 text-center">Secure Payments via Yoco & Capitec Bank</p>
-        <p class="text-gray-400 text-[10px]">&copy; 2026 PRIME WAVE TECHNOLOGIES</p>
-    </footer>
+    <h2 class="text-2xl font-black mb-10 text-center uppercase tracking-widest border-b border-white/10 pb-4">Prime Web Hosting</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-[2rem] border-white/10 text-center">
+            <p class="text-gray-400 font-bold text-[10px] uppercase mb-1">Prime Hosting</p>
+            <h3 class="text-4xl font-black mb-4">R299</h3>
+            <div class="text-[10px] text-gray-400 mb-8 leading-relaxed uppercase tracking-wider">
+                10GB SSD Storage<br>
+                Unlimited Bandwidth<br>
+                Professional cPanel Suite<br>
+                <span class="text-white">Free Premium Domain*</span>
+            </div>
+            <button onclick="processOrder('Prime Hosting', '299')" class="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-blue-400 hover:text-white transition-all">
+                Order Hosting
+            </button>
+        </div>
+    </div>
 
-    <script>
-        function checkCoverage() {
-            const addr = document.getElementById('address').value;
-            if(!addr) {
-                alert("Please enter an address");
-                return;
-            }
-            const msg = encodeURIComponent("Hi Prime Wave! Please check coverage for: " + addr);
-            window.location.href = "https://wa.me/27696101617?text=" + msg;
-        }
-    </script>
+</div>
 
-</body>
-</html>
+
                     
