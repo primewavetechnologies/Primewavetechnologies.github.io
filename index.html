@@ -3,283 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primewave Technologies | Connecting South Africa</title>
-    
+    <title>Primewave | Secure Connectivity</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://js.yoco.com/sdk/v1/yoco.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root { --midnight: #05070a; --cobalt: #3b82f6; --glass-border: rgba(255, 255, 255, 0.08); }
-        
-        body { 
-            background-color: var(--midnight); 
-            color: #f8fafc; 
-            font-family: 'Space Grotesk', sans-serif; 
-            overflow-x: hidden; 
-            display: flex; 
-            flex-direction: column; 
-            min-height: 100vh;
-            position: relative;
+        :root { --primary: #3b82f6; --yoco-blue: #0055ff; }
+        body { background-color: #020617; color: #f8fafc; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glass-card { 
+            background: rgba(15, 23, 42, 0.6); 
+            backdrop-filter: blur(12px); 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
         }
-
-        /* Neural Glow Background */
-        .neural-glow {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-            overflow: hidden;
-            background: radial-gradient(circle at 50% 50%, #070b14 0%, #05070a 100%);
-        }
-        .orb {
-            position: absolute;
-            width: 600px; height: 600px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 70%);
-            filter: blur(80px);
-            animation: drift 25s infinite alternate ease-in-out;
-        }
-        @keyframes drift {
-            0% { transform: translate(-10%, -10%) scale(1); }
-            100% { transform: translate(20%, 20%) scale(1.2); }
-        }
-
-        /* Shimmering Logo */
-        .text-logo {
-            font-size: 3.5rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            text-transform: uppercase;
-            font-style: italic;
-            background: linear-gradient(90deg, #ffffff, #3b82f6, #ffffff);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shine 6s linear infinite;
-        }
-        @keyframes shine { to { background-position: 200% center; } }
-
-        /* Tagline Highlight */
-        .sentient-highlight {
-            color: var(--cobalt);
-            text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
-            animation: pulse-sentient 3s infinite ease-in-out;
-            font-weight: 500;
-        }
-        @keyframes pulse-sentient {
-            0%, 100% { opacity: 0.6; filter: brightness(1); }
-            50% { opacity: 1; filter: brightness(1.3); }
-        }
-
-        /* 3D Glass Cards */
-        .prime-glass { 
-            background: rgba(255, 255, 255, 0.02); 
-            backdrop-filter: blur(20px); 
-            border: 1px solid var(--glass-border); 
-            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
-            height: 100%; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: space-between;
-            position: relative;
-            overflow: hidden;
-        }
-        .prime-glass:hover { 
-            border-color: rgba(59, 130, 246, 0.5); 
-            background: rgba(59, 130, 246, 0.06); 
-            transform: translateY(-12px) scale(1.03) rotateX(2deg);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(59, 130, 246, 0.15);
-        }
-
-        .prime-button { 
-            background: var(--cobalt); 
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3); 
-            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-            color: white; border: none; font-weight: 700;
-        }
-        .prime-button:hover {
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.7);
-            transform: scale(1.08);
-            letter-spacing: 0.1em;
-        }
-        
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
-        @keyframes reveal { from { opacity: 0; transform: translateY(40px); filter: blur(10px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
-        
-        .nav-btn { transition: 0.4s; padding: 12px 24px; color: #666; font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.2em; border-radius: 30px; }
-        .nav-btn.active { color: white; background: rgba(59, 130, 246, 0.15); border: 1px solid rgba(59, 130, 246, 0.4); box-shadow: 0 0 20px rgba(59, 130, 246, 0.1); }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .hero-glow { background: radial-gradient(circle at 50% -20%, #1e40af 0%, #020617 70%); }
     </style>
 </head>
-<body class="pt-16">
+<body>
 
-    <div class="neural-glow">
-        <div class="orb" style="top: -10%; left: -10%;"></div>
-        <div class="orb" style="bottom: -10%; right: -10%; animation-delay: -7s;"></div>
-    </div>
-
-    <header class="text-center mb-16 px-6">
-        <h1 class="text-logo">PRIME WAVE<span class="text-blue-500">.</span></h1>
-        <p class="mt-4 text-white/20 uppercase tracking-[1.2em] text-[10px]">
-            Infrastructure for <span class="sentient-highlight">Sentient Beings</span>
-        </p>
-    </header>
-
-    <nav class="flex flex-wrap justify-center gap-2 mb-16 px-6 overflow-x-auto no-scrollbar">
-        <button onclick="switchTab('coverage')" id="btn-coverage" class="nav-btn active">Coverage</button>
-        <button onclick="switchTab('fibre')" id="btn-fibre" class="nav-btn">Fibre</button>
-        <button onclick="switchTab('fixed')" id="btn-fixed" class="nav-btn">Wireless</button>
-        <button onclick="switchTab('mobile')" id="btn-mobile" class="nav-btn">Mobile</button>
-        <button onclick="switchTab('voice')" id="btn-voice" class="nav-btn">Voice</button>
-        <button onclick="switchTab('hosting')" id="btn-hosting" class="nav-btn">Hosting</button>
-        <button onclick="switchTab('about')" id="btn-about" class="nav-btn">About</button>
+    <nav class="fixed w-full z-50 glass-card px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-black tracking-tighter italic text-blue-500">PRIMEWAVE</div>
+        <div class="hidden md:flex gap-8 text-xs font-bold uppercase">
+            <a href="#coverage">Coverage</a>
+            <a href="#data">Data</a>
+            <a href="#voice">Voice</a>
+            <a href="#hosting">Hosting</a>
+        </div>
+        <button onclick="window.open('https://wa.me/27123456789')" class="bg-green-600 px-4 py-2 rounded-lg text-[10px] font-bold uppercase">WhatsApp Support</button>
     </nav>
 
-    <main class="max-w-7xl mx-auto px-6 pb-24 flex-grow w-full">
-        
-        <section id="coverage" class="tab-content active text-center">
-             <div class="prime-glass p-12 md:p-20 rounded-[3.5rem] max-w-2xl mx-auto">
-                <h2 class="text-3xl font-bold mb-4 italic uppercase text-white tracking-widest">Coverage Check</h2>
-                <p class="text-[10px] text-blue-400/60 uppercase mb-10 tracking-[0.4em]">Map the Local Infrastructure</p>
-                <input type="text" id="addressInput" placeholder="Physical Address Entry..." class="w-full bg-white/5 border border-white/10 p-6 rounded-2xl mb-8 text-white text-center outline-none focus:border-blue-500 transition-all font-light tracking-widest">
-                <button onclick="checkCoverage()" class="prime-button w-full py-6 rounded-2xl text-[11px] font-bold uppercase tracking-[0.4em]">Initiate Search</button>
+    <section id="coverage" class="hero-glow pt-40 pb-20 px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-black mb-6">SECURE <span class="text-blue-500">PAYMENTS.</span><br>FAST DATA.</h1>
+        <div class="max-w-2xl mx-auto glass-card p-2 rounded-2xl flex flex-col md:flex-row gap-2 mt-10">
+            <input type="text" id="addressInput" placeholder="Enter address for coverage check..." class="bg-transparent flex-1 px-6 py-4 outline-none">
+            <button onclick="triggerWhatsAppCoverage()" class="bg-blue-600 hover:bg-blue-500 px-10 py-4 rounded-xl font-bold transition">Check Coverage</button>
+        </div>
+    </section>
+
+    <section id="data" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="glass-card p-8 rounded-3xl border-blue-500/30">
+                <h3 class="text-xl font-bold">Unlimited Wildcard</h3>
+                <div class="text-4xl font-black my-6">R450</div>
+                <button onclick="payWithYoco(45000, 'Unlimited Wildcard')" class="w-full py-4 bg-blue-600 rounded-2xl font-bold hover:bg-blue-500 transition">Order via Yoco</button>
             </div>
-        </section>
 
-        <section id="fibre" class="tab-content">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <script>
-                    [{n:'40Mbps Sym',p:'549'},{n:'100Mbps Sym',p:'889'},{n:'200Mbps Sym',p:'1079'},{n:'500Mbps Sym',p:'1349'}].forEach(f=>{
-                        document.write(`<div class="prime-glass p-8 rounded-[2.5rem] text-center">
-                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-[0.2em]">Fibre Optic</p>
-                            <h3 class="text-5xl font-bold my-8">R${f.p}</h3>
-                            <p class="text-[10px] text-blue-400 mb-8 uppercase font-bold tracking-widest">${f.n}</p>
-                            <button onclick="processOrder('${f.n} Fibre', '${f.p}')" class="prime-button w-full py-4 rounded-xl text-[9px] font-bold uppercase">Order Node</button>
-                        </div>`);
-                    });
-                </script>
+            <div class="glass-card p-8 rounded-3xl border-yellow-500/20">
+                <h3 class="text-xl font-bold">MTN Uncapped 20</h3>
+                <div class="text-4xl font-black my-6">R699</div>
+                <button onclick="payWithYoco(69900, 'MTN Uncapped 20')" class="w-full py-4 bg-yellow-600 rounded-2xl font-bold hover:bg-yellow-500 transition">Order via Yoco</button>
             </div>
-        </section>
 
-        <section id="fixed" class="tab-content">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 text-center">
-                <div class="space-y-8">
-                    <h3 class="text-blue-400 text-[10px] font-bold uppercase tracking-[0.5em]">LTE Protocols</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <script>
-                            [{n:'10Mbps',p:'269'},{n:'20Mbps',p:'399'},{n:'30Mbps',p:'499'},{n:'Pro Uncapped',p:'799'}].forEach(p=>{
-                                document.write(`<div class="prime-glass p-8 rounded-3xl">
-                                    <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">${p.n}</p>
-                                    <h3 class="text-3xl font-bold my-4">R${p.p}</h3>
-                                    <button onclick="processOrder('LTE ${p.n}', '${p.p}')" class="prime-button w-full py-3 rounded-xl text-[9px] font-bold uppercase">Order</button>
-                                </div>`);
-                            });
-                        </script>
-                    </div>
-                </div>
-                <div class="space-y-8">
-                    <h3 class="text-blue-500 text-[10px] font-bold uppercase tracking-[0.5em]">5G Protocols</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <script>
-                            [{n:'5G Lite',p:'499'},{n:'5G Basic',p:'699'},{n:'5G Essential',p:'849'},{n:'5G Pro',p:'999'}].forEach(p=>{
-                                document.write(`<div class="prime-glass p-8 rounded-3xl">
-                                    <p class="text-[9px] text-blue-400 uppercase font-bold tracking-widest">${p.n}</p>
-                                    <h3 class="text-3xl font-bold my-4">R${p.p}</h3>
-                                    <button onclick="processOrder('5G ${p.n}', '${p.p}')" class="prime-button w-full py-3 rounded-xl text-[9px] font-bold uppercase">Order</button>
-                                </div>`);
-                            });
-                        </script>
-                    </div>
-                </div>
+            <div class="glass-card p-8 rounded-3xl border-blue-400/20">
+                <h3 class="text-xl font-bold">Telkom One Unlimited</h3>
+                <div class="text-4xl font-black my-6">R1899</div>
+                <button onclick="payWithYoco(189900, 'Telkom One Unlimited')" class="w-full py-4 bg-slate-800 rounded-2xl font-bold hover:bg-slate-700 transition">Order via Yoco</button>
             </div>
-        </section>
 
-        <section id="mobile" class="tab-content">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <script>
-                    [{n:'One Pro',p:'499',d:'15GB | 250 Min'}, {n:'One Prime',p:'650',d:'20GB | 350 Min'},
-                    {n:'One Business',p:'999',d:'50GB | 1000 Min'}, {n:'One Unlimited',p:'1899',d:'120GB | Unlimited'}].forEach(m=>{
-                        document.write(`<div class="prime-glass p-8 rounded-[2.5rem]">
-                            <p class="text-[9px] text-blue-400 font-bold uppercase tracking-widest">${m.n}</p>
-                            <h3 class="text-4xl font-bold my-6">R${m.p}</h3>
-                            <p class="text-[9px] text-gray-500 mb-8 uppercase tracking-[0.2em] font-light">${m.d}</p>
-                            <button onclick="processOrder('${m.n} Mobile', '${m.p}')" class="prime-button w-full py-4 rounded-xl text-[9px] font-bold uppercase tracking-widest">Deploy SIM</button>
-                        </div>`);
-                    });
-                </script>
-            </div>
-        </section>
-
-        <section id="voice" class="tab-content">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto text-center">
-                <div class="prime-glass p-16 rounded-[4rem]">
-                    <p class="text-[10px] text-blue-400 uppercase font-bold tracking-[0.3em]">Unlimited Voice</p>
-                    <h3 class="text-6xl font-bold my-10 tracking-tighter">R399</h3>
-                    <button onclick="processOrder('Voice Unlimited', '399')" class="prime-button w-full py-5 rounded-2xl text-[10px] font-bold uppercase tracking-[0.3em]">Order Voice</button>
-                </div>
-                <div class="prime-glass p-16 rounded-[4rem]">
-                    <p class="text-blue-500 text-[10px] uppercase font-bold tracking-[0.3em]">SIP Trunking Pro</p>
-                    <h3 class="text-6xl font-bold my-10 tracking-tighter">R1699</h3>
-                    <button onclick="processOrder('SIP Trunking Pro', '1699')" class="prime-button w-full py-5 rounded-2xl text-[10px] font-bold uppercase tracking-[0.3em]">Order Trunk</button>
-                </div>
-            </div>
-        </section>
-
-        <section id="hosting" class="tab-content">
-            <div class="max-w-md mx-auto">
-                <div class="prime-glass p-16 rounded-[4rem] text-center border-blue-500/20">
-                    <p class="text-[11px] text-gray-500 uppercase font-bold tracking-[0.5em]">Prime Cloud</p>
-                    <h3 class="text-6xl font-bold my-10 text-white tracking-tighter">R299</h3>
-                    <button onclick="processOrder('Cloud Hosting', '299')" class="prime-button w-full py-5 rounded-2xl text-[11px] font-bold uppercase tracking-widest">Deploy Space</button>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="tab-content">
-            <article class="prime-glass p-12 md:p-24 rounded-[4rem] max-w-4xl mx-auto border-blue-500/10">
-                <h2 class="text-4xl font-bold mb-10 italic uppercase text-white">The Prime Protocol<span class="text-blue-500">.</span></h2>
-                <div class="text-gray-400 font-light text-xl leading-relaxed space-y-6">
-                    <p><span class="text-white font-medium italic uppercase tracking-widest">Primewave Technologies</span> is not a utility. We are architects of digital reach.</p>
-                    <p>While standard providers see account numbers and data packets, we recognize <span class="text-blue-400 font-medium">sentient beings</span> operating at the edge of innovation.</p>
-                    <p>By curating the finest nodes across South Africa’s leading networks, we engineer a gateway that operates at your frequency. Stable. Secure. Sentient.</p>
-                </div>
-            </article>
-        </section>
-
-    </main>
-
-    <footer class="py-16 mt-auto text-center">
-        <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em]">© 2025 Primewave Technologies (Pty) Ltd</p>
-        <p class="text-[9px] text-blue-500/30 mt-4 uppercase tracking-[0.8em]">Verified <span class="sentient-highlight">Sentient Gateway</span></p>
-    </footer>
+        </div>
+    </section>
 
     <script>
-        const whatsappNumber = "27696101617"; 
-        const yocoLink = "https://pay.yoco.com/Primewavetech";
-
-        function switchTab(tId) {
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-            const content = document.getElementById(tId);
-            if(content) content.classList.add('active');
-            const btn = document.getElementById('btn-' + tId);
-            if(btn) btn.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function checkCoverage() {
+        // WHATSAPP COVERAGE LOGIC
+        function triggerWhatsAppCoverage() {
             const addr = document.getElementById('addressInput').value;
-            if(!addr || addr.trim() === "") {
-                alert("Please enter a valid address.");
-                return;
-            }
-            const msg = encodeURIComponent("Greetings Primewave. I am a sentient being. Please check coverage for: " + addr);
-            window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
+            if(!addr) return alert("Enter an address");
+            window.open(`https://wa.me/27123456789?text=Coverage Check for: ${encodeURIComponent(addr)}`, '_blank');
         }
 
-        function processOrder(prod, price) {
-            window.open(yocoLink, '_blank');
-            const msg = encodeURIComponent(`Greetings Primewave. I am a sentient being ordering: *${prod}* @ *R${price}*. I have accessed the payment portal.`);
-            setTimeout(() => { window.location.href = `https://wa.me/${whatsappNumber}?text=${msg}`; }, 1500);
+        // YOCO INTEGRATION
+        const yoco = new window.YocoSDK({
+            publicKey: 'pk_test_ed3c8433yc9658f8' // Replace with your LIVE public key
+        });
+
+        function payWithYoco(amountInCents, productName) {
+            yoco.showPopup({
+                amountInCents: amountInCents,
+                currency: 'ZAR',
+                name: 'Primewave ' + productName,
+                description: 'Payment for ' + productName,
+                callback: function (result) {
+                    if (result.error) {
+                        alert("Error: " + result.error.message);
+                    } else {
+                        alert("Payment Successful! Reference: " + result.id);
+                        // Redirect to success page or handle fulfillment here
+                    }
+                }
+            });
         }
     </script>
 </body>
