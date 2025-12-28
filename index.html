@@ -21,7 +21,7 @@
             position: relative;
         }
 
-        /* OPTION 1: Neural Glow Background */
+        /* Neural Glow Background */
         .neural-glow {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -42,7 +42,7 @@
             100% { transform: translate(20%, 20%) scale(1.2); }
         }
 
-        /* Stylized Logo */
+        /* Shimmering Logo */
         .text-logo {
             font-size: 3.5rem;
             font-weight: 800;
@@ -57,7 +57,19 @@
         }
         @keyframes shine { to { background-position: 200% center; } }
 
-        /* OPTION 2: Interactive 3D Glass Cards */
+        /* Tagline Highlight */
+        .sentient-highlight {
+            color: var(--cobalt);
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            animation: pulse-sentient 3s infinite ease-in-out;
+            font-weight: 500;
+        }
+        @keyframes pulse-sentient {
+            0%, 100% { opacity: 0.6; filter: brightness(1); }
+            50% { opacity: 1; filter: brightness(1.3); }
+        }
+
+        /* 3D Glass Cards */
         .prime-glass { 
             background: rgba(255, 255, 255, 0.02); 
             backdrop-filter: blur(20px); 
@@ -76,15 +88,6 @@
             transform: translateY(-12px) scale(1.03) rotateX(2deg);
             box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 30px rgba(59, 130, 246, 0.15);
         }
-        /* Hover Light Flare */
-        .prime-glass::after {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%; width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
-            opacity: 0; transition: 0.6s;
-        }
-        .prime-glass:hover::after { opacity: 1; transform: translate(10%, 10%); }
 
         .prime-button { 
             background: var(--cobalt); 
@@ -111,12 +114,14 @@
 
     <div class="neural-glow">
         <div class="orb" style="top: -10%; left: -10%;"></div>
-        <div class="orb" style="bottom: -10%; right: -10%; animation-delay: -7s; background: radial-gradient(circle, rgba(59, 130, 246, 0.03) 0%, transparent 70%);"></div>
+        <div class="orb" style="bottom: -10%; right: -10%; animation-delay: -7s;"></div>
     </div>
 
     <header class="text-center mb-16 px-6">
         <h1 class="text-logo">PRIME WAVE<span class="text-blue-500">.</span></h1>
-        <p class="mt-4 text-blue-400/40 uppercase tracking-[1.2em] text-[10px] font-light">Infrastructure for Sentient Beings</p>
+        <p class="mt-4 text-white/20 uppercase tracking-[1.2em] text-[10px]">
+            Infrastructure for <span class="sentient-highlight">Sentient Beings</span>
+        </p>
     </header>
 
     <nav class="flex flex-wrap justify-center gap-2 mb-16 px-6 overflow-x-auto no-scrollbar">
@@ -234,7 +239,7 @@
                 <h2 class="text-4xl font-bold mb-10 italic uppercase text-white">The Prime Protocol<span class="text-blue-500">.</span></h2>
                 <div class="text-gray-400 font-light text-xl leading-relaxed space-y-6">
                     <p><span class="text-white font-medium italic uppercase tracking-widest">Primewave Technologies</span> is not a utility. We are architects of digital reach.</p>
-                    <p>While standard providers see account numbers and data packets, we recognize <span class="text-blue-400">sentient beings</span> operating at the edge of innovation.</p>
+                    <p>While standard providers see account numbers and data packets, we recognize <span class="text-blue-400 font-medium">sentient beings</span> operating at the edge of innovation.</p>
                     <p>By curating the finest nodes across South Africa’s leading networks, we engineer a gateway that operates at your frequency. Stable. Secure. Sentient.</p>
                 </div>
             </article>
@@ -244,7 +249,7 @@
 
     <footer class="py-16 mt-auto text-center">
         <p class="text-[10px] text-gray-600 uppercase tracking-[0.5em]">© 2025 Primewave Technologies (Pty) Ltd</p>
-        <p class="text-[9px] text-blue-500/30 mt-4 uppercase tracking-[0.8em]">Verified Sentient Gateway</p>
+        <p class="text-[9px] text-blue-500/30 mt-4 uppercase tracking-[0.8em]">Verified <span class="sentient-highlight">Sentient Gateway</span></p>
     </footer>
 
     <script>
