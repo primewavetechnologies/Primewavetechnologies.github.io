@@ -3,118 +3,208 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRIME WAVE | Mainframe</title>
+    <title>Primewave Technologies | Connecting South Africa</title>
+    
+    <meta name="description" content="Primewave Technologies: High-performance Fibre, 5G, and LTE. Integrated with MTN, Telkom, Openserve, and OpenWeb. Powered by Yoco.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        body { background-color: #020202; color: #ffffff; font-family: 'Space Grotesk', sans-serif; }
-        .prime-glass {
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.4s ease;
-        }
-        .prime-glass:hover { border-color: #3b82f6; background: rgba(59, 130, 246, 0.03); transform: translateY(-5px); }
-        .featured-glow { border: 1px solid #3b82f6 !important; box-shadow: 0 0 30px rgba(59, 130, 246, 0.2); }
-        .blue-gradient-btn { background: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%); transition: 0.3s; }
+        :root { --midnight: #05070a; --cobalt: #3b82f6; --glass-border: rgba(255, 255, 255, 0.08); }
+        body { background-color: var(--midnight); color: #f8fafc; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
+        .brand-logo { max-width: 280px; height: auto; margin: 0 auto 2rem auto; filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.2)); }
+        .partner-logo { height: 22px; width: auto; opacity: 0.4; filter: grayscale(100%) brightness(200%); transition: 0.4s; }
+        .partner-logo:hover { opacity: 1; filter: grayscale(0%) brightness(100%); transform: scale(1.05); }
+        .prime-glass { background: rgba(255, 255, 255, 0.01); backdrop-filter: blur(12px); border: 1px solid var(--glass-border); transition: 0.4s; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+        .prime-glass:hover { border-color: var(--cobalt); background: rgba(59, 130, 246, 0.03); transform: translateY(-3px); }
+        .prime-button { background: var(--cobalt); box-shadow: 0 0 20px rgba(59, 130, 246, 0.2); transition: 0.4s; color: white; cursor: pointer; border: none; }
         .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.5s ease; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        .nav-btn { color: #555; transition: 0.3s; padding: 10px 20px; text-transform: uppercase; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; }
-        .nav-btn.active { color: #3b82f6; border-bottom: 2px solid #3b82f6; }
+        .tab-content.active { display: block; animation: fadeIn 0.6s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; } }
+        .nav-btn { transition: 0.3s; padding-bottom: 8px; color: #555; font-size: 10px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; white-space: nowrap; }
+        .nav-btn.active { color: var(--cobalt); border-bottom: 2px solid var(--cobalt); }
     </style>
 </head>
-<body>
+<body class="pt-16">
 
-<script>
-    const whatsappNumber = "27XXXXXXXXX"; // ANDRE: ENTER YOUR NUMBER
-    const yocoLink = "https://pay.yoco.com/Primewavetech";
-
-    // FUNCTION FOR BUYING (Yoco + WhatsApp)
-    function processOrder(name, price) {
-        window.open(yocoLink, '_blank');
-        const msg = `Greetings Prime Wave. I am a sentient being interested in ordering the *${name}* @ *R${price}*. Let's proceed.`;
-        setTimeout(() => {
-            window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
-        }, 1200);
-    }
-
-    // FUNCTION FOR COVERAGE (WhatsApp ONLY - No Yoco)
-    function checkCoverage() {
-        const msg = `Greetings Prime Wave. I am a sentient being. I would like to check coverage for my location. Please assist.`;
-        window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
-    }
-
-    function switchTab(tabId) {
-        document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-        document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById(tabId).classList.add('active');
-        event.currentTarget.classList.add('active');
-    }
-</script>
-
-<div class="max-w-7xl mx-auto px-6 py-12">
-    
-    <header class="text-center mb-16">
-        <h1 class="text-6xl font-bold tracking-tighter italic mb-2 uppercase text-white">PRIME WAVE<span class="text-blue-500">.</span></h1>
-        <p class="text-blue-400/60 uppercase tracking-[0.6em] text-[10px]">Infrastructure for Sentient Beings</p>
+    <header class="text-center mb-12 px-6">
+        <img src="https://i.ibb.co/Lhy0T1x/Primewave-Logo.png" alt="Primewave Technologies Logo" class="brand-logo">
+        <p class="mt-2 text-blue-400/40 uppercase tracking-[0.8em] text-[10px]">Infrastructure for Sentient Beings</p>
     </header>
 
-    <nav class="flex flex-wrap justify-center gap-4 mb-12 border-b border-white/5 pb-4">
-        <button onclick="switchTab('coverage')" class="nav-btn active">Coverage</button>
-        <button onclick="switchTab('fibre')" class="nav-btn">Fibre</button>
-        <button onclick="switchTab('mobile')" class="nav-btn">Mobile One</button>
-        <button onclick="switchTab('fixed')" class="nav-btn">Fixed LTE/5G</button>
-        <button onclick="switchTab('voice')" class="nav-btn">Voice/SIP</button>
-        <button onclick="switchTab('hosting')" class="nav-btn">Hosting</button>
+    <nav class="flex flex-wrap justify-center gap-4 md:gap-8 mb-16 border-b border-white/5 pb-4 px-6 overflow-x-auto no-scrollbar">
+        <button onclick="switchTab('coverage')" id="btn-coverage" class="nav-btn active">Coverage</button>
+        <button onclick="switchTab('fibre')" id="btn-fibre" class="nav-btn">Fibre</button>
+        <button onclick="switchTab('fixed')" id="btn-fixed" class="nav-btn">Wireless</button>
+        <button onclick="switchTab('mobile')" id="btn-mobile" class="nav-btn">Mobile</button>
+        <button onclick="switchTab('voice')" id="btn-voice" class="nav-btn">Voice</button>
+        <button onclick="switchTab('hosting')" id="btn-hosting" class="nav-btn">Hosting</button>
+        <button onclick="switchTab('about')" id="btn-about" class="nav-btn">About</button>
     </nav>
 
-    <div id="coverage" class="tab-content active">
-        <div class="prime-glass featured-glow p-16 rounded-[3rem] text-center max-w-3xl mx-auto">
-            <h2 class="text-3xl font-bold mb-4 uppercase italic">Infrastructure Scan</h2>
-            <p class="text-gray-400 mb-8 text-sm uppercase tracking-[0.2em]">Check availability for Fibre, LTE, and 5G at your location</p>
-            <button onclick="checkCoverage()" class="px-12 py-5 blue-gradient-btn rounded-2xl text-sm font-bold shadow-2xl uppercase tracking-widest">
-                Help Me Check Availability
-            </button>
+    <main class="max-w-7xl mx-auto px-6 pb-20 flex-grow w-full">
+        
+        <section id="coverage" class="tab-content active text-center">
+             <div class="prime-glass p-12 rounded-[3rem] max-w-2xl mx-auto border-blue-500/20 shadow-2xl shadow-blue-500/5">
+                <h2 class="text-2xl font-bold mb-6 italic uppercase text-white">Infrastructure Scan</h2>
+                <input type="text" id="addressInput" placeholder="Enter Physical Address..." class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl mb-4 text-white outline-none focus:border-blue-500">
+                <button onclick="checkCoverage()" class="prime-button w-full py-5 rounded-2xl text-[10px] font-bold uppercase tracking-widest">Check Availability</button>
+            </div>
+        </section>
+
+        <section id="fibre" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <script>
+                    [{n:'40Mbps Sym',p:'549'},{n:'100Mbps Sym',p:'889'},{n:'200Mbps Sym',p:'1079'},{n:'500Mbps Sym',p:'1349'}].forEach(f=>{
+                        document.write(`<div class="prime-glass p-8 rounded-[2rem] text-center">
+                            <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Primewave Fibre</p>
+                            <h3 class="text-4xl font-bold my-6">R${f.p}</h3>
+                            <p class="text-[8px] text-blue-400 mb-6 uppercase">${f.n}</p>
+                            <button onclick="processOrder('${f.n} Fibre', '${f.p}')" class="prime-button w-full py-3 rounded-xl text-[9px] font-bold uppercase">Order Now</button>
+                        </div>`);
+                    });
+                </script>
+            </div>
+        </section>
+
+        <section id="fixed" class="tab-content">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h3 class="text-yellow-500 text-[10px] font-bold uppercase tracking-[0.3em] pl-2">MTN Fixed LTE</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <script>
+                            [{n:'10Mbps',p:'269'},{n:'20Mbps',p:'399'},{n:'30Mbps',p:'499'},{n:'Pro Uncapped',p:'799'}].forEach(p=>{
+                                document.write(`<div class="prime-glass p-6 rounded-2xl text-center border-yellow-500/10">
+                                    <p class="text-[8px] text-gray-400 uppercase font-bold">${p.n}</p>
+                                    <h3 class="text-2xl font-bold my-3">R${p.p}</h3>
+                                    <button onclick="processOrder('MTN ${p.n}', '${p.p}')" class="prime-button w-full py-2 rounded-lg text-[8px] font-bold uppercase">Order</button>
+                                </div>`);
+                            });
+                        </script>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-blue-400 text-[10px] font-bold uppercase tracking-[0.3em] pl-2">Telkom 5G</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <script>
+                            [{n:'5G Lite',p:'499'},{n:'5G Basic',p:'699'},{n:'5G Essential',p:'849'},{n:'5G Pro',p:'999'}].forEach(p=>{
+                                document.write(`<div class="prime-glass p-6 rounded-2xl text-center border-blue-500/10">
+                                    <p class="text-[8px] text-blue-400 uppercase font-bold">${p.n}</p>
+                                    <h3 class="text-2xl font-bold my-3">R${p.p}</h3>
+                                    <button onclick="processOrder('Telkom ${p.n}', '${p.p}')" class="prime-button w-full py-2 rounded-lg text-[8px] font-bold uppercase">Order</button>
+                                </div>`);
+                            });
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="mobile" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <script>
+                    const plans = [
+                        {n:'One Pro',p:'499',d:'15GB | 250 Min'}, {n:'One Prime',p:'650',d:'20GB | 350 Min'},
+                        {n:'One Business',p:'999',d:'50GB | 1000 Min'}, {n:'One Unlimited',p:'1899',d:'120GB | Unlimited'}
+                    ];
+                    plans.forEach(m=>{
+                        document.write(`<div class="prime-glass p-8 rounded-[2rem] text-center">
+                            <p class="text-[9px] text-blue-400 font-bold uppercase">${m.n}</p>
+                            <h3 class="text-3xl font-bold my-4">R${m.p}</h3>
+                            <p class="text-[8px] text-gray-500 mb-6 uppercase tracking-widest">${m.d}</p>
+                            <button onclick="processOrder('${m.n} Mobile', '${m.p}')" class="prime-button w-full py-3 rounded-xl text-[9px] font-bold uppercase">Order SIM</button>
+                        </div>`);
+                    });
+                </script>
+            </div>
+        </section>
+
+        <section id="voice" class="tab-content">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="prime-glass p-10 rounded-[2.5rem] text-center">
+                    <p class="text-[9px] text-blue-400 uppercase font-bold tracking-widest">Unlimited Voice</p>
+                    <h3 class="text-4xl font-bold my-6">R399</h3>
+                    <p class="text-[8px] text-gray-500 mb-8 uppercase italic">Pure VoIP Infrastructure</p>
+                    <button onclick="processOrder('Voice Unlimited', '399')" class="prime-button w-full py-4 rounded-xl text-[9px] font-bold uppercase">Order Voice</button>
+                </div>
+                <div class="prime-glass p-10 rounded-[2.5rem] text-center">
+                    <p class="text-blue-500 text-[9px] uppercase font-bold tracking-widest">SIP Trunking Pro</p>
+                    <h3 class="text-4xl font-bold my-6">R1699</h3>
+                    <p class="text-[8px] text-gray-500 mb-8 uppercase italic">Corporate Grade Path</p>
+                    <button onclick="processOrder('SIP Trunking Pro', '1699')" class="prime-button w-full py-4 rounded-xl text-[9px] font-bold uppercase">Order SIP</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="hosting" class="tab-content">
+            <div class="max-w-sm mx-auto">
+                <div class="prime-glass p-10 rounded-[2.5rem] text-center">
+                    <p class="text-[9px] text-gray-500 uppercase font-bold tracking-widest">Prime Cloud</p>
+                    <h3 class="text-4xl font-bold my-6 text-white">R299</h3>
+                    <p class="text-[8px] text-blue-400 mb-8 uppercase tracking-widest">Secure Sentient Hosting</p>
+                    <button onclick="processOrder('Cloud Hosting', '299')" class="prime-button w-full py-4 rounded-xl text-[9px] font-bold uppercase">Deploy Space</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="tab-content">
+            <article class="prime-glass p-12 md:p-20 rounded-[3rem] border-white/10 relative overflow-hidden max-w-4xl mx-auto">
+                <div class="absolute -top-24 -left-24 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px]"></div>
+                <h2 class="text-4xl font-bold mb-8 italic uppercase text-white">The Prime Protocol<span class="text-blue-500">.</span></h2>
+                <div class="text-gray-400 font-light text-lg leading-relaxed">
+                    <p class="mb-6"><span class="text-white font-medium">Primewave Technologies</span> is a forward-thinking telecommunications provider dedicated to architecting superior digital experiences. We specialize in high-capacity, ultra-low latency connectivity specifically engineered for <span class="text-blue-400">sentient beings</span>.</p>
+                    <p>By integrating world-class infrastructure with a personalized approach, Primewave ensures that your gateway to the global web is stable, secure, and operating at the highest frequency of performance.</p>
+                </div>
+            </article>
+        </section>
+
+    </main>
+
+    <footer class="border-t border-white/5 py-16 bg-black/40 mt-auto">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col items-center gap-10">
+            <div class="text-center">
+                <p class="text-[10px] uppercase tracking-[0.4em] text-gray-500 mb-8 font-bold">Integrated Infrastructure Partners</p>
+                <div class="flex flex-wrap items-center justify-center gap-10 md:gap-16">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/MTN_Logo.svg/1024px-MTN_Logo.svg.png" alt="MTN" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Telkom_logo.svg/2560px-Telkom_logo.svg.png" alt="Telkom" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/02/Openserve_logo.svg/1200px-Openserve_logo.svg.png" alt="Openserve" class="partner-logo">
+                    <img src="https://www.openweb.co.za/wp-content/uploads/2021/01/openweb-logo-blue.png" alt="OpenWeb" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Yoco_Logo.svg/1200px-Yoco_Logo.svg.png" alt="Yoco" class="partner-logo">
+                </div>
+            </div>
+            <div class="text-center">
+                <p class="text-[9px] text-gray-600 uppercase tracking-widest">© 2025 Primewave Technologies (Pty) Ltd</p>
+                <p class="text-[8px] text-blue-500/20 mt-2 uppercase tracking-[0.3em]">Connecting South Africa | Verified Sentient Gateway</p>
+            </div>
         </div>
-    </div>
+    </footer>
 
-    <div id="fibre" class="tab-content">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="prime-glass p-8 rounded-[2.5rem] text-center">
-                <p class="text-gray-500 text-[10px] uppercase">50Mbps Uncapped</p>
-                <h3 class="text-4xl font-bold my-4">R699</h3>
-                <button onclick="processOrder('50Mbps Fibre', '699')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase">Order Now</button>
-            </div>
-            </div>
-    </div>
+    <script>
+        const whatsappNumber = "27696101617"; 
+        const yocoLink = "https://pay.yoco.com/Primewavetech";
 
-    <div id="mobile" class="tab-content">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div class="prime-glass featured-glow p-8 rounded-[2rem] text-center relative">
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 text-[8px] px-3 py-1 rounded-full font-bold">FLAGSHIP</div>
-                <p class="text-blue-400 text-[10px] uppercase font-bold">One Unlimited</p>
-                <h3 class="text-3xl font-bold my-4">R1899</h3>
-                <button onclick="processOrder('One Unlimited Mobile', '1899')" class="w-full py-3 blue-gradient-btn rounded-xl text-xs font-bold uppercase">Order SIM</button>
-            </div>
-        </div>
-    </div>
+        function switchTab(tId) {
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.nav-btn').forEach(b => {
+                b.classList.remove('active', 'text-blue-500'); b.classList.add('text-gray-500');
+            });
+            const content = document.getElementById(tId);
+            if(content) content.classList.add('active');
+            const btn = document.getElementById('btn-' + tId);
+            if(btn) btn.classList.add('active', 'text-blue-500');
+        }
 
-    <div id="fixed" class="tab-content">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
-            <div class="prime-glass p-8 rounded-[2.5rem] border-yellow-500/20">
-                <p class="text-yellow-500 text-[10px] uppercase font-bold">MTN Fixed 10Mbps</p>
-                <h3 class="text-4xl font-bold my-4">R269</h3>
-                <button onclick="processOrder('MTN Fixed 10Mbps', '269')" class="w-full py-4 blue-gradient-btn rounded-xl font-bold text-xs uppercase text-white">Order LTE</button>
-            </div>
-        </div>
-    </div>
+        function checkCoverage() {
+            const addr = document.getElementById('addressInput').value;
+            if(!addr) return alert("Please enter coordinates (address) for an infrastructure scan.");
+            window.location.href = `https://wa.me/${whatsappNumber}?text=Greetings Primewave. I am a sentient being. Please check availability for: ${addr}`;
+        }
 
-</div>
-
-<footer class="text-center py-20 opacity-30">
-    <p class="text-[9px] uppercase tracking-[0.4em]">© 2025 Prime Wave Tech | Integrated Mainframe Build</p>
-</footer>
-
+        function processOrder(prod, price) {
+            window.open(yocoLink, '_blank');
+            const msg = `Greetings Primewave. I am a sentient being ordering: *${prod}* @ *R${price}*. I have accessed the payment portal.`;
+            setTimeout(() => { window.location.href = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`; }, 1500);
+        }
+    </script>
 </body>
 </html>
