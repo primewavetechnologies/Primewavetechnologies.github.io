@@ -11,7 +11,6 @@
         :root { --midnight: #05070a; --cobalt: #3b82f6; --glass-border: rgba(255, 255, 255, 0.08); }
         body { background-color: var(--midnight); color: #f8fafc; font-family: 'Space Grotesk', sans-serif; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
         
-        /* Stylized Text Header */
         .text-logo {
             font-size: 3rem;
             font-weight: 800;
@@ -58,9 +57,10 @@
         
         <section id="coverage" class="tab-content active text-center">
              <div class="prime-glass p-12 rounded-[3rem] max-w-2xl mx-auto border-blue-500/20 shadow-2xl shadow-blue-500/5">
-                <h2 class="text-2xl font-bold mb-6 italic uppercase text-white tracking-widest">Infrastructure Scan</h2>
+                <h2 class="text-2xl font-bold mb-6 italic uppercase text-white tracking-widest">Coverage Check</h2>
+                <p class="text-[10px] text-gray-500 uppercase mb-8 tracking-widest">Verify network availability in your area</p>
                 <input type="text" id="addressInput" placeholder="Enter Physical Address..." class="w-full bg-white/5 border border-white/10 p-5 rounded-2xl mb-4 text-white outline-none focus:border-blue-500 transition-all">
-                <button onclick="checkCoverage()" class="prime-button w-full py-5 rounded-2xl text-[10px] font-bold uppercase tracking-[0.3em] hover:scale-[1.02]">Initiate Scan</button>
+                <button onclick="checkCoverage()" class="prime-button w-full py-5 rounded-2xl text-[10px] font-bold uppercase tracking-[0.3em] hover:scale-[1.02]">Check Availability</button>
             </div>
         </section>
 
@@ -192,7 +192,7 @@
                 alert("Please enter a valid address.");
                 return;
             }
-            const msg = encodeURIComponent("Greetings Primewave. I am a sentient being. Please check availability for: " + addr);
+            const msg = encodeURIComponent("Greetings Primewave. I am a sentient being. Please check coverage for: " + addr);
             window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank');
         }
 
