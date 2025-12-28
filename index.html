@@ -24,10 +24,10 @@
     <nav class="fixed w-full z-50 glass-card px-6 py-4 flex justify-between items-center">
         <div class="text-2xl font-black tracking-tighter italic text-blue-500">PRIMEWAVE</div>
         <div class="hidden md:flex gap-8 text-xs font-bold uppercase">
-            <a href="#coverage">Coverage</a>
-            <a href="#data">Data</a>
-            <a href="#voice">Voice</a>
-            <a href="#hosting">Hosting</a>
+            <a href="#coverage" class="hover:text-blue-500">Coverage</a>
+            <a href="#data" class="hover:text-blue-500">Data</a>
+            <a href="#voice" class="hover:text-blue-500">Voice</a>
+            <a href="#hosting" class="hover:text-blue-500">Hosting</a>
         </div>
         <button onclick="window.open('https://wa.me/27123456789')" class="bg-green-600 px-4 py-2 rounded-lg text-[10px] font-bold uppercase">WhatsApp Support</button>
     </nav>
@@ -35,32 +35,80 @@
     <section id="coverage" class="hero-glow pt-40 pb-20 px-6 text-center">
         <h1 class="text-5xl md:text-7xl font-black mb-6">SECURE <span class="text-blue-500">PAYMENTS.</span><br>FAST DATA.</h1>
         <div class="max-w-2xl mx-auto glass-card p-2 rounded-2xl flex flex-col md:flex-row gap-2 mt-10">
-            <input type="text" id="addressInput" placeholder="Enter address for coverage check..." class="bg-transparent flex-1 px-6 py-4 outline-none">
+            <input type="text" id="addressInput" placeholder="Enter address for coverage check..." class="bg-transparent flex-1 px-6 py-4 outline-none text-white">
             <button onclick="triggerWhatsAppCoverage()" class="bg-blue-600 hover:bg-blue-500 px-10 py-4 rounded-xl font-bold transition">Check Coverage</button>
         </div>
     </section>
 
     <section id="data" class="py-20 px-6 max-w-7xl mx-auto">
+        <h2 class="text-3xl font-bold mb-10 text-center uppercase tracking-widest">Uncapped Connectivity</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <div class="glass-card p-8 rounded-3xl border-blue-500/30">
                 <h3 class="text-xl font-bold">Unlimited Wildcard</h3>
+                <p class="text-slate-400 text-xs mt-2 italic">No FUP, No Speed Limit</p>
                 <div class="text-4xl font-black my-6">R450</div>
                 <button onclick="payWithYoco(45000, 'Unlimited Wildcard')" class="w-full py-4 bg-blue-600 rounded-2xl font-bold hover:bg-blue-500 transition">Order via Yoco</button>
             </div>
 
             <div class="glass-card p-8 rounded-3xl border-yellow-500/20">
                 <h3 class="text-xl font-bold">MTN Uncapped 20</h3>
+                <p class="text-slate-400 text-xs mt-2 italic">20Mbps Constant Speed</p>
                 <div class="text-4xl font-black my-6">R699</div>
                 <button onclick="payWithYoco(69900, 'MTN Uncapped 20')" class="w-full py-4 bg-yellow-600 rounded-2xl font-bold hover:bg-yellow-500 transition">Order via Yoco</button>
             </div>
 
             <div class="glass-card p-8 rounded-3xl border-blue-400/20">
                 <h3 class="text-xl font-bold">Telkom One Unlimited</h3>
+                <p class="text-slate-400 text-xs mt-2 italic">120GB Full Speed + Unlimited Minutes</p>
                 <div class="text-4xl font-black my-6">R1899</div>
                 <button onclick="payWithYoco(189900, 'Telkom One Unlimited')" class="w-full py-4 bg-slate-800 rounded-2xl font-bold hover:bg-slate-700 transition">Order via Yoco</button>
             </div>
 
+        </div>
+    </section>
+
+    <section id="voice" class="py-20 px-6 max-w-7xl mx-auto bg-slate-950/50 rounded-3xl mb-20">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-2xl font-bold mb-8 uppercase tracking-widest">Voice Bundles</h2>
+                <div class="space-y-4">
+                    <div class="glass-card p-6 rounded-2xl flex justify-between items-center">
+                        <div>
+                            <p class="font-bold">Voice Unlimited Basic</p>
+                            <p class="text-xs text-slate-500">Unlimited Voice Calling</p>
+                        </div>
+                        <button onclick="payWithYoco(39900, 'Voice Unlimited Basic')" class="bg-blue-600 px-6 py-2 rounded-xl font-bold text-sm">R399</button>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl flex justify-between items-center border-blue-500/30">
+                        <div>
+                            <p class="font-bold">Unlimited SIP Trunk</p>
+                            <p class="text-xs text-slate-500">Business PBX Ready</p>
+                        </div>
+                        <button onclick="payWithYoco(179900, 'SIP Trunk')" class="bg-blue-600 px-6 py-2 rounded-xl font-bold text-sm">R1799</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="hosting">
+                <h2 class="text-2xl font-bold mb-8 uppercase tracking-widest">Web Hosting</h2>
+                <div class="space-y-4">
+                    <div class="glass-card p-6 rounded-2xl flex justify-between items-center">
+                        <div>
+                            <p class="font-bold">Starter Webhosting</p>
+                            <p class="text-xs text-slate-500">Free Domain Included</p>
+                        </div>
+                        <button onclick="payWithYoco(12900, 'Starter Hosting')" class="bg-slate-700 px-6 py-2 rounded-xl font-bold text-sm">R129</button>
+                    </div>
+                    <div class="glass-card p-6 rounded-2xl flex justify-between items-center border-blue-500/30">
+                        <div>
+                            <p class="font-bold">Prime Webhosting</p>
+                            <p class="text-xs text-slate-500">Free Premium Domain</p>
+                        </div>
+                        <button onclick="payWithYoco(27900, 'Prime Hosting')" class="bg-slate-700 px-6 py-2 rounded-xl font-bold text-sm">R279</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -88,7 +136,6 @@
                         alert("Error: " + result.error.message);
                     } else {
                         alert("Payment Successful! Reference: " + result.id);
-                        // Redirect to success page or handle fulfillment here
                     }
                 }
             });
