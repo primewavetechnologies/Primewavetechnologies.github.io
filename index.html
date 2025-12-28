@@ -1,4 +1,4 @@
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,68 +6,72 @@
     <title>Prime Wave Technologies | National ISP</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        body { background: #050506; color: #ffffff; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .text-gradient { background: linear-gradient(90deg, #00c6ff, #0072ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .wave-gradient { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
-        
-        /* Radar Animation */
-        .pulse { position: absolute; width: 12px; height: 12px; background: #00c6ff; border-radius: 50%; animation: pulse-animation 2s infinite; }
-        @keyframes pulse-animation { 
-            0% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0.7); } 
-            70% { box-shadow: 0 0 0 20px rgba(0, 198, 255, 0); } 
-            100% { box-shadow: 0 0 0 0 rgba(0, 198, 255, 0); } 
-        }
-        .radar-line { position: absolute; top: 50%; left: 50%; width: 50%; height: 2px; background: linear-gradient(90deg, rgba(0,198,255,0.5), transparent); transform-origin: left; animation: radar-rotate 4s linear infinite; }
-        @keyframes radar-rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        body { background: #0a0a0b; color: #fff; font-family: ui-sans-serif, system-ui, sans-serif; scroll-behavior: smooth; }
+        .text-blue-glow { color: #00c6ff; text-shadow: 0 0 10px rgba(0, 198, 255, 0.3); }
+        .bg-blue-gradient { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
     </style>
 </head>
 <body>
 
-    <nav class="p-5 flex justify-between items-center glass sticky top-0 z-50">
-        <div class="text-xl font-black tracking-tighter text-gradient">PRIME WAVE</div>
-        <div class="flex space-x-4 text-[10px] uppercase tracking-widest font-bold">
-            <a href="#internet" class="text-gray-400 hover:text-blue-400">Services</a>
-            <a href="#map" class="text-gray-400 hover:text-blue-400">Coverage</a>
-        </div>
+    <nav class="p-6 flex justify-between items-center glass sticky top-0 z-50">
+        <div class="text-xl font-black tracking-tighter text-blue-glow">PRIME WAVE</div>
+        <a href="https://wa.me/27696101617" class="text-[10px] font-bold uppercase tracking-widest border-b border-blue-500 pb-1">Get Support</a>
     </nav>
 
-    <section class="py-16 px-6 text-center">
-        <h1 class="text-5xl font-black mb-4 tracking-tight">The Future is <span class="text-gradient">Unlimited.</span></h1>
-        <p class="text-gray-400 max-w-md mx-auto mb-10 text-sm">South Africa's most affordable high-speed infrastructure.</p>
+    <section class="py-20 px-6 text-center">
+        <h1 class="text-5xl font-extrabold mb-4 tracking-tight">The Future is <span class="text-blue-glow">Unlimited.</span></h1>
+        <p class="text-gray-400 mb-10 text-sm">South Africa's cheapest National ISP infrastructure.</p>
         
-        <div class="max-w-md mx-auto glass p-1.5 rounded-2xl flex border-white/20">
-            <input type="text" id="address" placeholder="Enter address for Fibre..." class="bg-transparent p-4 flex-grow outline-none text-sm text-white">
-            <button onclick="checkCoverage()" class="wave-gradient px-8 py-4 rounded-xl font-bold text-sm">Check</button>
+        <div class="max-w-md mx-auto glass p-2 rounded-2xl flex border-white/20">
+            <input type="text" id="address" placeholder="Enter address for Fibre..." class="bg-transparent p-3 flex-grow outline-none text-sm">
+            <button onclick="checkCoverage()" class="bg-blue-gradient px-6 py-4 rounded-xl font-bold text-sm hover:opacity-90 transition">Check</button>
         </div>
     </section>
 
-    <section id="map" class="px-6 mb-16">
-        <div class="max-w-xl mx-auto glass rounded-[2rem] p-1 overflow-hidden border-blue-500/20 relative">
-            <div class="py-4 bg-black/40 text-center relative z-10">
-                <p class="text-[10px] text-blue-400 font-bold uppercase tracking-widest">Active Coverage Radar</p>
-            </div>
-            <div class="h-48 relative bg-black/20">
-                <div class="radar-line"></div>
-                <div class="pulse" style="top: 30%; left: 65%;"></div> <div class="pulse" style="top: 70%; left: 30%;"></div> <div class="absolute inset-0 flex items-center justify-center opacity-10">
-                    <svg viewBox="0 0 100 100" class="w-full h-full stroke-blue-500 fill-none"><circle cx="50" cy="50" r="45"/><circle cx="50" cy="50" r="25"/></svg>
-                </div>
-            </div>
+    <section class="grid gap-6 px-6 max-w-5xl mx-auto mb-20 md:grid-cols-3">
+        
+        <div class="glass p-8 rounded-[2rem] border-white/10 text-center">
+            <p class="text-blue-400 font-bold text-[10px] uppercase mb-1">Unlimited Fibre</p>
+            <p class="text-gray-500 text-[10px] italic mb-2">Starting from</p>
+            <h3 class="text-4xl font-black mb-6">R299<span class="text-sm font-normal text-gray-500">/pm</span></h3>
+            <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl bg-white text-black font-bold">Order Now</a>
         </div>
+
+        <div class="glass p-8 rounded-[2rem] border-blue-500/50 border-2 text-center relative">
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-500 text-white text-[9px] px-4 py-1 rounded-full font-bold uppercase">Best Value</div>
+            <p class="text-blue-400 font-bold text-[10px] uppercase mb-1">Plug & Play WiFi</p>
+            <p class="text-gray-500 text-[10px] italic mb-2">Starting from</p>
+            <h3 class="text-4xl font-black mb-6">R350<span class="text-sm font-normal text-gray-500">/pm</span></h3>
+            <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl bg-blue-gradient text-white font-bold">Order Now</a>
+        </div>
+
+        <div class="glass p-8 rounded-[2rem] border-white/10 text-center">
+            <p class="text-blue-400 font-bold text-[10px] uppercase mb-1">Mobile Data</p>
+            <p class="text-gray-500 text-[10px] italic mb-2">Starting from</p>
+            <h3 class="text-4xl font-black mb-6">R350<span class="text-sm font-normal text-gray-500">/bundle</span></h3>
+            <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl bg-white text-black font-bold">Order Now</a>
+        </div>
+
     </section>
 
-    <section id="internet" class="grid gap-6 px-6 max-w-5xl mx-auto mb-20 md:grid-cols-3">
-        <div class="glass p-8 rounded-[2rem] border-white/5">
-            <p class="text-blue-500 font-bold text-[10px] uppercase mb-1">Unlimited Fibre</p>
-            <p class="text-gray-500 text-[10px] uppercase italic mb-2">Starting from</p>
-            <h3 class="text-3xl font-black mb-6">R299<span class="text-sm font-light text-gray-500">/pm</span></h3>
-            <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded-xl bg-white text-black font-bold text-center">Order Now</a>
-        </div>
+    <footer class="py-12 text-center border-t border-white/5">
+        <p class="text-gray-600 text-[9px] tracking-widest uppercase mb-4 text-center">Secure Payments via Yoco & Capitec Bank</p>
+        <p class="text-gray-400 text-[10px]">&copy; 2026 PRIME WAVE TECHNOLOGIES</p>
+    </footer>
 
-        <div class="glass p-8 rounded-[2rem] border-blue-500/40 border-2 relative">
-            <div class="absolute -top-3 right-6 bg-blue-500 text-white text-[9px] px-3 py-1 rounded-full font-bold uppercase">Popular</div>
-            <p class="text-blue-500 font-bold text-[10px] uppercase mb-1">Plug & Play WiFi</p>
-            <p class="text-gray-500 text-[10px] uppercase italic mb-2">Starting from</p>
-            <h3 class="text-3xl font-black mb-6">R350<span class="text-sm font-light text-gray-500">/pm</span></h3>
-            <a href="https://pay.yoco.com/Primewavetech" class="block w-full py-4 rounded
+    <script>
+        function checkCoverage() {
+            const addr = document.getElementById('address').value;
+            if(!addr) {
+                alert("Please enter an address");
+                return;
+            }
+            const msg = encodeURIComponent("Hi Prime Wave! Please check coverage for: " + addr);
+            window.location.href = "https://wa.me/27696101617?text=" + msg;
+        }
+    </script>
+
+</body>
+</html>
+                    
